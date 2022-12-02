@@ -1,7 +1,8 @@
 from django.shortcuts import render
-
-def main(request):
-    return render(request, 'projects/main.html')
+from .models import Project
 
 def projects(request):
-    pass 
+    return render(request, 'projects/projects.html')
+
+def project(request, pk):
+    return render(request, 'projects/single-project.html')

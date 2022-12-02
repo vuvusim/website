@@ -1,18 +1,26 @@
 {% extends 'projects/main.html' %}
 {% block content %}
 
-<h1>Projects page</h1>
-
-<p>You ar on the {{ page }} page</p>
-
-<hr>
-
 <h1>Projects</h1>
 
-<ul>
-    {% for project in projects %}
-    <li>Title:<a href="{% url 'project' project.id %}"> {{ project.title }}</a> --- {{ project.description }}</li>
-    {% endfor %}
-</ul>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Project</th>
+        <th>Positive votes</th>
+        <th>Votes</th>
+        <th></th>
+        {% for project in projects %}
+            <tr>
+                <td>{{ project.id }}</td>
+                <td>{{ project.title }}</td>
+                <td>{{ project.vote_ratio }}%</td>
+                <td>{{ project.vote_total }}</td>
+                <td>{{ project.created }}</td>
+                <td><a href="{% url 'project' project.id %}">View</td>
+            </tr>
+        {% endfor %}
+    </tr>
+</table>
 
 {% endblock content %}

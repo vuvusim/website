@@ -1,5 +1,6 @@
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
@@ -33,7 +34,7 @@ def loginUser(request):
 #-- logout user send to login --#
 def logoutUser(request):
     logout(request)
-    messages.error(request, 'User was loged out')
+    messages.info(request, 'User was loged out')
     return redirect('login')
 
 #-- register user (same template) --#
@@ -72,3 +73,11 @@ def userProfile(request, pk):
 
     context = {'profile': profile, 'topSkills': topSkills, 'otherSkills': otherSkills}
     return render(request, 'users/user-profile.html', context)
+
+@login_required(login_url='login')
+def userAccount(request):
+    profile = request.user.profile
+    skills = profile.skill_set.all()
+    projects = profile.project_set.all()
+    context = {'profile': profile, 'skills': skills, 'projects': projects}
+    return render(request, 'users/account.html', context)

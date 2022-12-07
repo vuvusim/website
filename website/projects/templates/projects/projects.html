@@ -1,6 +1,5 @@
 {% extends 'projects/main.html' %}
 {% block content %}
-<!-- Main section -->
 <main class="projects">
     <section class="hero-section text-center">
       <div class="container container--narrow">
@@ -20,7 +19,7 @@
         </div>
       </div>
     </section>
-    <!-- Search Result: Search list -->
+
     <section class="projectsList">
       <div class="container">
         <div class="grid grid--three">
@@ -35,8 +34,7 @@
                   <p><a class="project__author" href="{% url 'user-profile' project.owner.id %}">By {{ project.owner.name }}</a></p>
                   <p class="project--rating">
                     <span style="font-weight: bold;">{{ project.vote_ratio }}%</span> Positive
-                    Feedback ({{ project.vote_total }}) Vote{{ project.vote_total|pluralize:"s" }}
-                  </p>
+                    Feedback ({{ project.vote_total }}) Vote{{ project.vote_total|pluralize:"s" }}</p>
                   <div class="project__tags">
 
                     {% for tag in project.tags.all %}

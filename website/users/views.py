@@ -7,7 +7,7 @@ from django.db.models import Q
 from django.shortcuts import render, redirect
 from .models import Profile
 from .forms import CustomUserCreationForm, ProfileForm, SkillForm
-from .utils import searchProfiles
+from .utils import searchProfiles, paginateProfiles
 
 #-- Login user authentication --#
 def loginUser(request):
@@ -62,7 +62,8 @@ def registerUser(request):
 
 def profiles(request):
     profiles, search_text = searchProfiles(request)
-    context = {'profiles': profiles, 'search_text': search_text}
+    custom_range, profiles = paginateProfiles(request, profiles, 1)
+    context = {'profiles': profiles, 'search_text': search_text, 'custom_range': custom_range}
     return render(request, 'users/profiles.html', context)
 
 def userProfile(request, pk):

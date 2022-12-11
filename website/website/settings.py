@@ -137,4 +137,5 @@ EMAIL_HOST = 'smtp.zoho.eu'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'simasvenskus@zohomail.eu'
-EMAIL_HOST_PASSWORD = 'Dm0xDDqdhg5Y'
+EMAIL_HOST_PASSWORD = 'Degtukas158'
+DEFAULT_FROM_EMAIL = 'simasvenskus@zohomail.eu'

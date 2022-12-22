@@ -22,4 +22,4 @@
 * Django REST Framework
 
 # Home Page
-<img src="./static/images/Home page.png">
+<img src="./images/Home page.png">

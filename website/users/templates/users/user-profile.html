@@ -35,6 +35,7 @@
                                 <a title="Personal Website" href="{{profile.social_website}}" target="_blank"><i class="im im-globe"></i></a>
                             </li>
                             {% endif %}
+							
 							{% if request.user.profile.id != profile.id %}
 								<a href="{% url 'create-message' profile.id %}" class="btn btn--sub btn--lg">Send Message </a>
 							{% endif %}
@@ -57,13 +58,11 @@
 							{% endfor %}
 							<h3 class="devInfo__subtitle">Other Skills</h3>
 							<div class="devInfo__otherSkills">
-
 								{% for skill in otherSkills %}
 								<span class="tag tag--pill tag--sub tag--lg">
 									<small>{{ skill }}</small>
 								</span>
 								{% endfor %}
-
 							</div>
 						</div>
 					</div>

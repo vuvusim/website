@@ -3,7 +3,6 @@
 # Installation
 * 1 - clone repo https://github.com/vuvusim/final_project.git
 * 2 - create a virtual environment and activate
-*  - pip install venv
 *  - py -m venv venv
 *  - venv\Scripts\activate
 * 3 - cd into project "cd website"
